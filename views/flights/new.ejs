@@ -4,7 +4,12 @@
 
     <form action='/flights' method='Post'>
         <label>Airline:
-            <input type='text' name='airline'>
+            <select name='airline' required>
+                <option value='none'>--</option>
+                <option value='American'>American</option>
+                <option value='Southwest'>Southwest</option>
+                <option value='United'>United</option>
+            </select>
         </label>
         <br>
         <label>Airport:
@@ -18,7 +23,7 @@
         </label>
         <br>
         <label>Flight Number:
-            <input type='number' name='flightNo'>
+            <input type='number' name='flightNo' required>
         </label>
         <br>
         <label>Departure Date:

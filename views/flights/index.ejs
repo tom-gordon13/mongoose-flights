@@ -2,17 +2,17 @@
 
 <h1>All Flights</h1>
 
-<tr>
+<table>
+    <tr>
     <td class='head-row'>Airline</td>
     <td class='head-row'>Airport</td>
     <td class='head-row'>Flight Number</td>
     <td class='head-row'>Departure Date</td>
 </tr>
 <br>
-
-
+<% let todayDate = new Date() %>
 <% flights.forEach(f => { %>
-<tr>
+<tr style='color:<%= f.departs < todayDate ? 'red' : 'black' %>'>
     <td><%= f.airline %></td>
     <td><%= f.airport %></td>
     <td><%= f.flightNo %></td>
@@ -20,6 +20,7 @@
 </tr>
 <br>
 <% }) %>
+</table>
 
 <form action='/flights/index-asc' method='Get'>
 <button type='submit'>Ascending Order</button>
