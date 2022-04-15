@@ -7,7 +7,8 @@ const flightSchema = new Schema({
     airport:  {type: String, enum: ['AUS', 'DFW', 'DEN', 'LAX', 'SAN'], default: 'DEN'},
     flightNo: {type: Number, min: 10, max: 9999},
     departs:  {type: Date, default: function(){
-        return new Date().getLocalDateString() + 1;
+        let today = new Date();
+        return today.setFullYear(today.getFullYear() + 1)
     }}
 })
 

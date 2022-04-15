@@ -7,7 +7,18 @@ a {
   color: #00B7FF;
 }
 
-tr {
+tr, td {
   font-weight: 700;
   background-color: blue;
+  color: red;
+  margin: 40px;
 }
+
+table, tr, td {
+  color: red;
+  border: 1px solid;
+}
+
+
+
+

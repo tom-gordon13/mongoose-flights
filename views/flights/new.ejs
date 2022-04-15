@@ -8,7 +8,13 @@
         </label>
         <br>
         <label>Airport:
-            <input type='text' name='airport'>
+            <select name='airport'>
+                <option value='AUS'>AUS</option>
+                <option value='DFW'>DFW</option>
+                <option value='DEN' selected>DEN</option>
+                <option value='LAX'>LAX</option>
+                <option value='SAN'>SAN</option>
+            </select>
         </label>
         <br>
         <label>Flight Number:
@@ -16,7 +22,7 @@
         </label>
         <br>
         <label>Departure Date:
-            <input type='date' name='departs'>
+            <input type='datetime-local' name='departs' value='<%=departsDate%>'>
         </label>
         <br>
         <button type='submit'>Add Flight</button>
