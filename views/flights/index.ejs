@@ -3,12 +3,14 @@
 <h1>All Flights</h1>
 
 <table>
+<th>
     <tr>
     <td class='head-row'>Airline</td>
     <td class='head-row'>Airport</td>
     <td class='head-row'>Flight Number</td>
     <td class='head-row'>Departure Date</td>
 </tr>
+</th>
 <br>
 <% let todayDate = new Date() %>
 <% flights.forEach(f => { %>
@@ -22,11 +24,15 @@
 <% }) %>
 </table>
 
-<form action='/flights/index-asc' method='Get'>
-<button type='submit'>Ascending Order</button>
-</form>
-<form action='/flights/index-desc' method='Get'>
-<button type='submit'>Descending Order</button>
+
+<form action='/flights' method='GET'>
+    <label>Sort:
+        <select name="sort" >
+          <option value="asc" type='submit'>Ascending</option>
+          <option value="desc" type='submit'>Descending</option>
+        </select>
+      </label>
+      <button type='submit'>Submit</button>
 </form>
 
 <%- include('../partials/footer.ejs') -%>

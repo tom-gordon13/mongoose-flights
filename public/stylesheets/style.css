@@ -7,6 +7,15 @@ a {
   color: #00B7FF;
 }
 
+table {
+  display: flex;
+}
+
+
+th {
+  font-weight: 700;
+}
+
 
 
 

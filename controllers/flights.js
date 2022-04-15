@@ -10,6 +10,8 @@ module.exports = {
 
 function index(req, res) {
     Flight.find({}, function (err, flights) {
+        if (req.query.sort === 'desc') flights = flights.sort((flight1, flight2) => flight2.departs - flight1.departs);
+        if (req.query.sort === 'asc') flights = flights.sort((flight1, flight2) => flight1.departs - flight2.departs);
         res.render('flights/index', { flights })
     });
 }
