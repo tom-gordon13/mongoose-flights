@@ -1,0 +1,23 @@
+<%- include('../partials/header.ejs') -%>
+
+<h1>All Flights</h1>
+
+<tr>
+    <td class='head-row'>Airline</td>
+    <td class='head-row'>Airport</td>
+    <td class='head-row'>Flight Number</td>
+    <td class='head-row'>Departure Date</td>
+</tr>
+<br>
+<% flights.forEach(f => { %>
+<tr>
+    <td><%= f.airline %></td>
+    <td><%= f.airport %></td>
+    <td><%= f.flightNo %></td>
+    <td><%= f.departs.toLocaleDateString() %></td>
+</tr>
+<br>
+<% }) %>
+
+
+<%- include('../partials/footer.ejs') -%>

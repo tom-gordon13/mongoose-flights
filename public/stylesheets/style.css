@@ -6,3 +6,8 @@ body {
 a {
   color: #00B7FF;
 }
+
+tr {
+  font-weight: 700;
+  background-color: blue;
+}

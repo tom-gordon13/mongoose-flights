@@ -1,0 +1,25 @@
+<%- include('../partials/header.ejs') -%>
+
+    <h1>Add a New Flight</h1>
+
+    <form action='/flights' method='Post'>
+        <label>Airline:
+            <input type='text' name='airline'>
+        </label>
+        <br>
+        <label>Airport:
+            <input type='text' name='airport'>
+        </label>
+        <br>
+        <label>Flight Number:
+            <input type='number' name='flightNo'>
+        </label>
+        <br>
+        <label>Departure Date:
+            <input type='date' name='departs'>
+        </label>
+        <br>
+        <button type='submit'>Add Flight</button>
+    </form>
+
+    <%- include('../partials/footer.ejs') -%>
