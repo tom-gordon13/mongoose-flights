@@ -1,6 +1,12 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+  font-family: 'Noto Serif', serif;
+  font: 14px;
+  color: #222;
 }
 
 a {
@@ -12,8 +18,36 @@ table {
 }
 
 
-th {
+thead {
   font-weight: 700;
+  display: block;
+}
+
+tr {
+  display: block;
+}
+
+p, h1, h2, h3, a, ul{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  color: #222;
+}
+
+nav{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 60px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  text-transform: uppercase;
+}
+
+.more-detail {
+  margin: 0;
+  padding: 0;
+  text-decoration: underline;
+  color: #4d90aa;
 }
 
 

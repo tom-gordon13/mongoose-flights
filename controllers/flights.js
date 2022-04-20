@@ -5,7 +5,18 @@ module.exports = {
     new: newFlight,
     create, 
     indexAsc, 
-    indexDesc
+    indexDesc, 
+    show
+}
+
+function show(req, res) {
+    Flight.findOne(req.param.flightNo, function(err, flight) {
+        console.log(flight.destinations.length)
+        if (flight.destinations.length) {
+            flight.destinations.sort((dest1, dest2) => dest1.arrival - dest2.arrival);
+        }
+        res.render('flights/show', {flight})
+    })
 }
 
 function index(req, res) {

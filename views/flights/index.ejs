@@ -19,6 +19,7 @@
     <td><%= f.airport %></td>
     <td><%= f.flightNo %></td>
     <td><%= f.departs.toLocaleDateString() %></td>
+    <td ><a href='/flights/<%= f.flightNo %>' class='more-details'>More Details</a></td>
 </tr>
 <br>
 <% }) %>
@@ -26,13 +27,13 @@
 
 
 <form action='/flights' method='GET'>
-    <label>Sort:
+    <label>Sort by Date:
         <select name="sort" >
           <option value="asc" type='submit'>Ascending</option>
           <option value="desc" type='submit'>Descending</option>
         </select>
       </label>
-      <button type='submit'>Submit</button>
+      <button type='submit'>Sort</button>
 </form>
 
 <%- include('../partials/footer.ejs') -%>
