@@ -1,4 +1,5 @@
 const Flight = require('../models/flight.js');
+const Ticket = require('../models/ticket.js')
 
 module.exports = {
     index,
@@ -11,13 +12,25 @@ module.exports = {
 
 function show(req, res) {
     Flight.findOne(req.param.flightNo, function(err, flight) {
-        console.log(flight.destinations.length)
         if (flight.destinations.length) {
-            flight.destinations.sort((dest1, dest2) => dest1.arrival - dest2.arrival);
-        }
-        res.render('flights/show', {flight})
+            // sort dates in ascending order
+            flight.destinations.sort((dest1, dest2) => dest1.arrival - dest2.arrival);}
+        Ticket.find({flight: flight._flightNo}, function(err, tickets) {
+            // Now you can pass both the flight and tickets in the res.render call
+            res.render('flights/show', {flight, tickets})
+          });
     })
 }
+
+//TEST, try once there are tickets
+// function show(req, res){
+// Flight.findOne(req.param.flightNo, function(err, flight) {
+//     Ticket.find({flight: flight._flightNo}, function(err, tickets) {
+//       // Now you can pass both the flight and tickets in the res.render call
+//         res.render('flights/show', {flight, tickets})
+//     });
+// });
+// }
 
 function index(req, res) {
     Flight.find({}, function (err, flights) {

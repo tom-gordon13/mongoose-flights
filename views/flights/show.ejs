@@ -28,7 +28,26 @@
         <h5>No Destinations Listed</h5>
     <% } %> 
 <hr>
+<h3>Existing Tickets:</h3>
+<% if (tickets.length) { %>
+<section>
+    <h3>Seat #</h3>
+    <h3>Price</h3>
+</section> 
+<% tickets.forEach(t => { %>
+<section>
+    <div><%=t.seat%></div>
+    <div><%=t.price%><div>
+</section>   
+<% }) %>   
+<% } else { %>
+    <h3>No tickets yet for this flight</h3>
+    <% } %>
+<form action='/flights/<%= flight.flightNo %>/tickets/new'>
+    <button type='submit'>Add a New Ticket</button>
+</form>
 
+<hr>
 <% const airportOpts = ['AUS', 'DFW', 'DEN', 'LAX', 'SAN'] %>
 
 <form action='/flights/<%= flight.flightNo %>/arrivals' method='POST'>
@@ -41,11 +60,6 @@
                     if (flight.destinations.some(dest => dest.airport === airport)) return; }%> 
             <option value='<% airport %>'><%-`${airport}`%></option> 
             <% }); %> 
-            <!-- <option value='AUS'>AUS</option>
-            <option value='DFW'>DFW</option>
-            <option value='DEN'>DEN</option>
-            <option value='LAX'>LAX</option>
-            <option value='SAN'>SAN</option> -->
         </select>
     </label>
     <label>Arrival Date:

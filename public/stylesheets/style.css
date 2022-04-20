@@ -51,6 +51,19 @@ nav{
 }
 
 
+section > h3, div {
+ display: inline;
+ min-width: 60px;
+}
+
+section > h3 {
+  text-decoration: underline;
+}
+
+section {
+  display: flex;
+}
+
 
 
 

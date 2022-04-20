@@ -1,0 +1,18 @@
+<%- include('../../partials/header.ejs') -%>
+
+    <h1>Add a New Ticket for Flight #<%= flight.flightNo %></h1>
+<form action='/flights/<%= flight.flightNo %>' method='Post'>
+    <h3>Seat:</h3>
+    <input name='seat' required pattern="[A-F][1-9]\d?"><p>(Must be 'A1' thru 'F99')</p>
+    <br>
+    <h3>Price:</h3>
+    <input type='number' required min=0 name='price'>
+
+    <hr>
+    <button type='submit'>Add New Ticket</button>
+</form>
+  
+
+
+
+    <%- include('../../partials/footer.ejs') -%>
