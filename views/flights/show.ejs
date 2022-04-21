@@ -7,7 +7,8 @@
 <h3>Departure Date: <%= flight.departs.toLocaleDateString() %> </h3>
 <h3>Flight Destinations:</h3>
 <% if (flight.destinations.length) { %>
-     <table>
+    <% console.log(flight) %> 
+    <table>
         <thead>
         <tr>
              <td>Airport</td>
@@ -16,7 +17,6 @@
         </thead> 
         <tbody>
             <% flight.destinations.forEach(arr => { %>
-                
                 <tr>
                     <td><%= arr.airport %>  </td>
                     <td><%= arr.arrival.toLocaleString() %>  </td>
@@ -28,6 +28,7 @@
         <h5>No Destinations Listed</h5>
     <% } %> 
 <hr>
+
 <h3>Existing Tickets:</h3>
 <% if (tickets.length) { %>
 <section>
@@ -41,16 +42,18 @@
 </section>   
 <% }) %>   
 <% } else { %>
-    <h3>No tickets yet for this flight</h3>
+<h3>No tickets yet for this flight</h3>
     <% } %>
-<form action='/flights/<%= flight.flightNo %>/tickets/new'>
-    <button type='submit'>Add a New Ticket</button>
-</form>
+
+    
+<a href='/flights/<%= flight._id%>/tickets/new' class='more-details'>Add a New Ticket</a>
+
+
 
 <hr>
 <% const airportOpts = ['AUS', 'DFW', 'DEN', 'LAX', 'SAN'] %>
 
-<form action='/flights/<%= flight.flightNo %>/arrivals' method='POST'>
+<form action='/flights/<%= flight._id %>/arrivals' method='POST'>
     <h3>Add a Flight Destination</h3>
     <label>Airport:
         <select name='airport'>
@@ -58,7 +61,7 @@
             <% airportOpts.forEach(airport => { %>
                 <% if (flight.destinations.length) {
                     if (flight.destinations.some(dest => dest.airport === airport)) return; }%> 
-            <option value='<% airport %>'><%-`${airport}`%></option> 
+            <option value='<%= airport %>'><%-`${airport}`%></option> 
             <% }); %> 
         </select>
     </label>

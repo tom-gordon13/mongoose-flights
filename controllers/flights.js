@@ -11,26 +11,17 @@ module.exports = {
 }
 
 function show(req, res) {
-    Flight.findOne(req.param.flightNo, function(err, flight) {
+    console.log(req.params.id)
+    Flight.findById(req.params.id, function(err, flight) {
         if (flight.destinations.length) {
             // sort dates in ascending order
             flight.destinations.sort((dest1, dest2) => dest1.arrival - dest2.arrival);}
-        Ticket.find({flight: flight._flightNo}, function(err, tickets) {
+        Ticket.find({flight: flight._id}, function(err, tickets) {
             // Now you can pass both the flight and tickets in the res.render call
             res.render('flights/show', {flight, tickets})
           });
     })
 }
-
-//TEST, try once there are tickets
-// function show(req, res){
-// Flight.findOne(req.param.flightNo, function(err, flight) {
-//     Ticket.find({flight: flight._flightNo}, function(err, tickets) {
-//       // Now you can pass both the flight and tickets in the res.render call
-//         res.render('flights/show', {flight, tickets})
-//     });
-// });
-// }
 
 function index(req, res) {
     Flight.find({}, function (err, flights) {

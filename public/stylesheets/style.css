@@ -15,12 +15,16 @@ a {
 
 table {
   display: flex;
+  margin: 0;
 }
 
+td {
+  width: 100px;
+}
 
-thead {
+.head-row {
   font-weight: 700;
-  display: block;
+  /* display: inline; */
 }
 
 tr {
@@ -43,11 +47,11 @@ nav{
   text-transform: uppercase;
 }
 
-.more-detail {
+.more-details {
   margin: 0;
   padding: 0;
   text-decoration: underline;
-  color: #4d90aa;
+  color: #107da8;
 }
 
 
@@ -63,6 +67,18 @@ section > h3 {
 section {
   display: flex;
 }
+
+#sort-by {
+  margin-top: 15px;
+  padding-top: 10px;
+  border-top: solid 2px #222;
+  width: 50%
+}
+
+.flight-index {
+  border-top: solid 1px rgb(145, 141, 141)
+}
+
 
 
 

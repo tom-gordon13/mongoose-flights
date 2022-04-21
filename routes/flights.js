@@ -11,7 +11,7 @@ router.get('/index-desc', flightsCtrl.indexDesc);
 
 router.get('/new', flightsCtrl.new);
 
-router.get('/:flightNo', flightsCtrl.show)
+router.get('/:id', flightsCtrl.show)
 
 router.post('/', flightsCtrl.create);
 

@@ -5,19 +5,19 @@ module.exports = {
 }
 
 function create(req, res) {
-    Flight.findOne(req.param.flightNo, function(err, flight){
+    Flight.findById(req.params.id, function(err, flight){
         
-        if (req.body.arrival < flight.departs) { 
-            // Don't allow user to enter a destination that is before departure date
-            res.redirect(`/flights/${flight.flightNo}`)
-            console.log(req.body.arrival)
-            console.log(flight.departs)
-            return;
-        }
+        // if (req.body.arrival < flight.departs) { 
+        //     // Don't allow user to enter a destination that is before departure date
+        //     res.redirect(`/flights/${flight._id}`)
+        //     console.log(req.body.arrival)
+        //     console.log(flight.departs)
+        //     return;
+        // }
         flight.destinations.push(req.body);
         flight.save(function(err){
-            console.log(req.body.arrival)
-            res.redirect(`/flights/${flight.flightNo}`)
+            console.log(flight)
+            res.redirect(`/flights/${flight._id}`)
         })
     })
 }

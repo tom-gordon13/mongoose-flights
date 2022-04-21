@@ -5,6 +5,6 @@ const arrivalsCtrl = require('../controllers/arrivals')
 
 
 // 
-router.post('/flights/:flightNo/arrivals', arrivalsCtrl.create);
+router.post('/flights/:id/arrivals', arrivalsCtrl.create);
 
 module.exports = router;
