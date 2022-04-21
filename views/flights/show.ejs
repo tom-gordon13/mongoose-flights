@@ -5,29 +5,26 @@
 <h3>Airline: <%= flight.airline %> </h3>
 <h3>Departure Airport: <%= flight.airport %> </h3>
 <h3>Departure Date: <%= flight.departs.toLocaleDateString() %> </h3>
-<h3>Flight Destinations:</h3>
+<container id='flight-destinations'>
+    <h3>Flight Destinations:</h3>
 <% if (flight.destinations.length) { %>
     <% console.log(flight) %> 
-    <table>
-        <thead>
-        <tr>
-             <td>Airport</td>
-             <td>Arrival Date</td>
-        </tr>
-        </thead> 
-        <tbody>
+            <section>
+             <h3>Airport</h3>
+             <h3>Arrival Date</h3>
+            </section>
             <% flight.destinations.forEach(arr => { %>
-                <tr>
-                    <td><%= arr.airport %>  </td>
-                    <td><%= arr.arrival.toLocaleString() %>  </td>
-                </tr>
+                <section>
+                    <div><%= arr.airport %>  </div>
+                    <div><%= arr.arrival.toLocaleString() %>  </div>
+                </section>
            <% }); %> 
-        </tbody>
-     </table>
+      
      <% } else { %>
-        <h5>No Destinations Listed</h5>
+        <h3>No Destinations Listed</h3>
     <% } %> 
-<hr>
+     </container>
+
 
 <h3>Existing Tickets:</h3>
 <% if (tickets.length) { %>
@@ -60,7 +57,8 @@
             <option>--</option>
             <% airportOpts.forEach(airport => { %>
                 <% if (flight.destinations.length) {
-                    if (flight.destinations.some(dest => dest.airport === airport)) return; }%> 
+                    if (flight.destinations.some(dest => dest.airport === airport)) return; 
+                    if (flight.airport === airport) return; }%> 
             <option value='<%= airport %>'><%-`${airport}`%></option> 
             <% }); %> 
         </select>
