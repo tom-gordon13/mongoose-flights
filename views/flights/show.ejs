@@ -2,9 +2,12 @@
 
 <h1>Details for Flight # <%= flight.flightNo %></h1>
 
+
 <h3>Airline: <%= flight.airline %> </h3>
 <h3>Departure Airport: <%= flight.airport %> </h3>
 <h3>Departure Date: <%= flight.departs.toLocaleDateString() %> </h3>
+
+
 <container id='flight-destinations'>
     <h3>Flight Destinations:</h3>
 <% if (flight.destinations.length) { %>
@@ -21,7 +24,7 @@
            <% }); %> 
       
      <% } else { %>
-        <h3>No Destinations Listed</h3>
+        <p>No Destinations Listed</p>
     <% } %> 
      </container>
 

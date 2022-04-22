@@ -11,7 +11,6 @@ module.exports = {
 }
 
 function show(req, res) {
-    console.log(req.params.id)
     Flight.findById(req.params.id, function(err, flight) {
         if (flight.destinations.length) {
             // sort dates in ascending order

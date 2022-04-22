@@ -2,7 +2,7 @@
 
     <h1>Add a New Flight</h1>
 
-    <form action='/flights' method='Post'>
+    <form action='/flights' method='Post' id='new-flight-form'>
         <label>Airline:
             <select name='airline' required>
                 <option value='none'>--</option>
@@ -11,7 +11,7 @@
                 <option value='United'>United</option>
             </select>
         </label>
-        <br>
+        
         <label>Airport:
             <select name='airport'>
                 <option value='AUS'>AUS</option>
@@ -21,16 +21,16 @@
                 <option value='SAN'>SAN</option>
             </select>
         </label>
-        <br>
+        
         <label>Flight Number:
             <input type='number' name='flightNo' required>
         </label>
-        <br>
+        
         <label>Departure Date:
             <input type='datetime-local' name='departs' value='<%=departsDate%>'>
         </label>
-        <br>
-        <button type='submit'>Add Flight</button>
+        
+        <button type='submit' id='add-flight-btn'>Add Flight</button>
     </form>
 
     <%- include('../partials/footer.ejs') -%>
